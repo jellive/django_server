@@ -1,0 +1,4 @@
+.vscode
+*.pyc
+db.sqlite3
+jellserver/migrations
