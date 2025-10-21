@@ -41,8 +41,19 @@ isort==5.13.2
 # Testing
 pytest==8.3.3
 pytest-django==4.9.0
+pytest-cov==6.0.0
+pytest-xdist==3.6.1
+pytest-watch==4.2.0
+pytest-asyncio==0.24.0
 factory-boy==3.3.1
+faker==33.1.0
 coverage==7.6.7
+
+# E2E Testing
+playwright==1.49.0
+pytest-playwright==0.6.2
+httpx==0.28.1
+selenium==4.27.1
 
 # Monitoring
 sentry-sdk==2.18.0

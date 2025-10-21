@@ -30,8 +30,29 @@ skip_glob = ["*/migrations/*"]
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "jell_server.settings"
 python_files = ["test_*.py", "*_test.py", "tests.py"]
-addopts = "--cov=. --cov-report=html --cov-report=term-missing --reuse-db"
-testpaths = ["jellserver/tests"]
+addopts = """
+    --cov=.
+    --cov-report=html
+    --cov-report=term-missing
+    --reuse-db
+    --strict-markers
+    --tb=short
+    -ra
+"""
+testpaths = ["jellserver/tests", "tests"]
+markers = [
+    "django_db: mark test to use database",
+    "playwright: mark test as E2E browser test",
+    "slow: mark test as slow running",
+    "integration: mark test as integration test",
+    "e2e: mark test as end-to-end test",
+]
+asyncio_mode = "auto"
+
+# pytest-watch configuration
+[tool.pytest-watch]
+patterns = ["*.py"]
+ignore_patterns = ["*/migrations/*", "*/__pycache__/*"]
 
 [tool.coverage.run]
 source = ["."]
